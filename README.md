@@ -1,5 +1,8 @@
 # Proyecto-BD
 Proyecto final de Bases de Datos
+Estudiantes:
+Miguel Angel Salcedo Urian - 2242786
+Andres Felipe Alcantara Muños - 2242517
 ## Inicialización
 Una vez dentro de la carpeta raíz del proyecto procedemos a crear el contenedor para la base de datos (debe tener Docker en ejecución):
 ```sh
