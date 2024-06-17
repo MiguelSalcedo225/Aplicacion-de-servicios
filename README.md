@@ -26,3 +26,9 @@ Finalmente accedemos desde nuestro navegador a localhost:3000.
 Para acceder a la aplicación se disponen de unas credenciales para usuario de tipo cliente y de tipo administrador en la base de datos, no obstante los encontraras a continuación:
 ```sh
 Usuarios:
+login: user1, contraseña: password1. 
+login: user2, contraseña: password2.
+Administradores:
+login: admin1, contraseña 1234.
+login: admin2, contraseña 5678.
+```
