@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Datos</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="loginContainer" class="login-container">
+        <div class="login-box">
+            <form id="loginForm">
+                <h2>Login</h2>
+                <div class="input-groupLogin">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="input-groupLogin">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <div id="dashboardContainer" class="dashboard-container" style="display:none;">
+        <div class="sidebar">
+            <button onclick="showSection('clientSection')">Registrar Cliente</button>
+            <button onclick="showSection('searchSection')">Buscar Cliente</button>
+            <button onclick="showSection('mensajeroSection')">Registrar Mensajero</button>
+            <button onclick="showSection('AsignarMensajeroSection')">Asignar Mensajero</button>
+            <button onclick="showSection('serviceSection')">Registrar Servicio</button>
+            <button onclick="showSection('userSection')">Registrar Usuario</button>
+            <button onclick="showSection('modifySection')">Modificar Servicio</button>
+            <button onclick="showSection('monitorServiceSection')">Monitorear Servicio</button>
+            <button onclick="showSection('adminReports')">Administración</button>
+        </div>
+        <div class="main-content">
+            <div id="clientSection" class="section">
+                <h2>Registrar Cliente</h2>
+                <div class="input-group">
+                    <label for="client_id">ID:</label>
+                    <input type="text" id="client_id" name="client_id">
+                </div>
+                <div class="input-group">
+                    <label for="client_name">Nombre:</label>
+                    <input type="text" id="client_name" name="client_name">
+                </div>
+                <div class="input-group">
+                    <label for="client_address">Dirección:</label>
+                    <input type="text" id="client_address" name="client_address">
+                </div>
+                <div class="input-group">
+                    <label for="client_city">Ciudad:</label>
+                    <input type="text" id="client_city" name="client_city">
+                </div>
+                <div class="input-group">
+                    <label for="client_email">Email:</label>
+                    <input type="email" id="client_email" name="client_email">
+                </div>
+                <div class="input-group">
+                    <label for="client_phone">Teléfono de Contacto:</label>
+                    <input type="text" id="client_phone" name="client_phone">
+                </div>
+                <button type="button" onclick="addClient()">Registrar Cliente</button>
+            </div>
+            <div id="mensajeroSection" class="section">
+                <h2>Registrar Mensajero</h2>
+                <div class="input-group">
+                    <label for="courier_id">ID:</label>
+                    <input type="text" id="courier_id" name="courier_id">
+                </div>
+                <div class="input-group">
+                    <label for="courier_name">Nombre:</label>
+                    <input type="text" id="courier_name" name="courier_name">
+                </div>
+                <div class="input-group">
+                    <label for="courier_address">Dirección:</label>
+                    <input type="text" id="courier_address" name="courier_address">
+                </div>
+                <div class="input-group">
+                    <label for="courier_email">Email:</label>
+                    <input type="email" id="courier_email" name="courier_email">
+                </div>
+                <div class="input-group">
+                    <label for="courier_phone">Teléfono de Contacto:</label>
+                    <input type="text" id="courier_phone" name="courier_phone">
+                </div>
+                <div class="input-group">
+                    <label for="courier_transport">Medio de Transporte:</label>
+                    <input type="text" id="courier_transport" name="courier_transport">
+                </div>
+                <button type="button" onclick="addCourier()">Registrar Mensajero</button>
+            </div>
+            <div id="AsignarMensajeroSection" class="section">
+                <h2>Asignar Mensajero</h2>
+                <div class="input-group">
+                    <label for="service_code">Codigo del servicio:</label>
+                    <input type="text" id="service_code" name="service_code">
+                </div>
+                <div class="input-group">
+                    <label for="Id_Mensajero">Id del Mensajero:</label>
+                    <input type="text" id="Id_Mensajero" name="Id_Mensajero">
+                </div>
+                <div class="input-group">
+                    <label for="Id_Cliente">Id del Cliente:</label>
+                    <input type="text" id="Id_Cliente" name="Id_Cliente">
+                </div>
+                <button type="button" onclick="assignmessenger()">Asignar Mensajero</button>
+            </div>
+            <div id="serviceSection" class="section">
+                <h2>Registrar Servicio</h2>
+                <div class="input-group">
+                    <label for="service_code">Código:</label>
+                    <input type="text" id="service_code" name="service_code">
+                </div>
+                <div class="input-group">
+                    <label for="service_date">Fecha:</label>
+                    <input type="date" id="service_date" name="service_date">
+                </div>
+                <div class="input-group">
+                    <label for="service_time">Hora:</label>
+                    <input type="time" id="service_time" name="service_time">
+                </div>
+                <div class="input-group">
+                    <label for="service_origin">Origen:</label>
+                    <input type="text" id="service_origin" name="service_origin">
+                </div>
+                <div class="input-group">
+                    <label for="service_destination">Destino:</label>
+                    <input type="text" id="service_destination" name="service_destination">
+                </div>
+                <div class="input-group">
+                    <label for="service_description">Descripción:</label>
+                    <input type="text" id="service_description" name="service_description">
+                </div>
+                <div class="input-group">
+                    <label for="service_transport">Medio de Transporte:</label>
+                    <input type="text" id="service_transport" name="service_transport">
+                </div>
+                <div class="input-group">
+                    <label for="service_packages">Número de Paquetes:</label>
+                    <input type="number" id="service_packages" name="service_packages">
+                </div>
+                <div class="input-group">
+                    <label for="Id_Client">ID del cliente:</label>
+                    <input type="text" id="Id_Client" name="Id_Client">
+                </div>
+                <button type="button" onclick="addService()">Registrar Servicio</button>
+            </div>
+            <div id="userSection" class="section">
+                <h2>Registrar Usuario</h2>
+                <div class="input-group">
+                    <label for="user_login">Login:</label>
+                    <input type="text" id="user_login" name="user_login">
+                </div>
+                <div class="input-group">
+                    <label for="user_password">Contraseña:</label>
+                    <input type="password" id="user_password" name="user_password">
+                </div>
+                <div class="input-group">
+                    <label for="user_address">Dirección:</label>
+                    <input type="text" id="user_address" name="user_address">
+                </div>
+                <div class="input-group">
+                    <label for="user_email">Email:</label>
+                    <input type="email" id="user_email" name="user_email">
+                </div>
+                <div class="input-group">
+                    <label for="user_phone">Teléfono de Contacto:</label>
+                    <input type="text" id="user_phone" name="user_phone">
+                </div>
+                <div class="input-group">
+                    <label for="user_rol">Rol:</label>
+                    <select id="user_rol" name="user_rol">
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
+                    </select>
+                </div>
+                <button type="button" onclick="addUser()">Registrar Usuario</button>
+            </div>
+            <div id="modifySection" class="section">
+                <h2>Modificar Servicio</h2>
+                <div class="input-group">
+                    <label for="codeS">Código Servicio:</label>
+                    <input type="text" id="codeS" name="codeS">
+                </div>
+                <div class="input-group">
+                    <label for="codeM">Código Mensajero:</label>
+                    <input type="text" id="codeM" name="codeM">
+                </div>
+                <div class="input-group">
+                    <label for="modify_service_status">Estado:</label>
+                    <input type="text" id="modify_service_status" name="modify_service_status">
+                </div>
+                <button type="button" onclick="modifyService()">Modificar Servicio</button>
+            </div>
+            <div id="searchSection" class="section" style="display:none; overflow-y:auto; max-height: 80vh;">
+                <h2>Buscar Cliente</h2>
+                <div class="input-group">
+                    <label for="search_client_id">ID:</label>
+                    <input type="text" id="search_client_id" name="search_client_id">
+                </div>
+                <button type="button" onclick="searchClient()">Buscar Cliente</button>
+                <div id="clientDetails" style="display:none;">
+                    <h2>Detalles del Cliente</h2>
+                    <table id="clientTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Ciudad</th>
+                                <th>Email</th>
+                                <th>Teléfono de Contacto</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientTableBody">
+                            <!-- Aquí se agregarán las filas dinámicamente -->
+                        </tbody>
+                    </table>
+                    <div class="button-group">
+                        <button type="button" onclick="updateClientForm()">Modificar Cliente</button>
+                        <button type="button" onclick="deleteClient()">Eliminar Cliente</button>
+                    </div>
+                </div>
+                <div id="clientEditSection" style="display:none;">
+                    <h2>Editar Cliente</h2>
+                    <div class="input-group">
+                        <label for="edit_client_name">Nombre:</label>
+                        <input type="text" id="edit_client_name" name="edit_client_name">
+                    </div>
+                    <div class="input-group">
+                        <label for="edit_client_address">Dirección:</label>
+                        <input type="text" id="edit_client_address" name="edit_client_address">
+                    </div>
+                    <div class="input-group">
+                        <label for="edit_client_city">Ciudad:</label>
+                        <input type="text" id="edit_client_city" name="edit_client_city">
+                    </div>
+                    <div class="input-group">
+                        <label for="edit_client_email">Email:</label>
+                        <input type="email" id="edit_client_email" name="edit_client_email">
+                    </div>
+                    <div class="input-group">
+                        <label for="edit_client_phone">Teléfono de Contacto:</label>
+                        <input type="text" id="edit_client_phone" name="edit_client_phone">
+                    </div>
+                    <button type="button" onclick="updateClient()">Actualizar Cliente</button>
+                    <button type="button" onclick="cancelUpdate()">Cancelar</button>
+                </div>
+            </div>
+            <div id="monitorServiceSection" class="section">
+                <h2>Monitorear Servicio</h2>
+                <div class="input-group">
+                    <label for="service_code_monitor">Código del Servicio:</label>
+                    <input type="text" id="service_code_monitor" name="service_code_monitor">
+                </div>
+                <button type="button" onclick="monitorService()">Monitorear</button>
+                <div id="serviceResult" style="display:none; margin-top: 20px;">
+                    <h3>Resultado del Servicio</h3>
+                    <p><strong>Estado:</strong> <span id="service_status_monitor"></span></p>
+                    <p><strong>Fecha y Hora del Estado:</strong> <span id="service_datetime_monitor"></span></p>
+                    <p><strong>Descripción:</strong> <span id="service_description_monitor"></span></p>
+                </div>
+            </div>
+            <div id="adminReports" class="section" style="display:none;">
+                <h2>Administración - Reportes</h2>
+                <h3>Servicios Solicitados por Cliente</h3>
+                <label for="report_cliente_id">ID Cliente:</label>
+                <input type="text" id="report_cliente_id">
+                <label for="report_mes">Mes:</label>
+                <input type="number" id="report_mes" min="1" max="12">
+                <label for="report_ano">Año:</label>
+                <input type="number" id="report_ano" min="2000" max="2100">
+                <button type="button" onclick="generateClientReport()">Generar Reporte</button>
+    
+                <h3>Servicios Atendidos por Mensajero</h3>
+                <label for="report_mensajero_id">ID Mensajero:</label>
+                <input type="text" id="report_mensajero_id">
+                <label for="report_mes_mensajero">Mes:</label>
+                <input type="number" id="report_mes_mensajero" min="1" max="12">
+                <label for="report_ano_mensajero">Año:</label>
+                <input type="number" id="report_ano_mensajero" min="2000" max="2100">
+                <button type="button" onclick="generateMensajeroReport()">Generar Reporte</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
